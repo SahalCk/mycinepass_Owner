@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cinepass_owner/utils/sized_boxes.dart';
 import 'package:cinepass_owner/utils/text_styles.dart';
 import 'package:cinepass_owner/view_models/signin_screen_bloc/login_screen_bloc.dart';
@@ -52,8 +54,7 @@ class OwnerLoginScreen extends StatelessWidget {
                     } else if (state is LoginSuccessState) {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const OwnerDashBordScreeen()),
+                              builder: (context) => OwnerDashBordScreeen()),
                           (route) => false);
                     }
                   },

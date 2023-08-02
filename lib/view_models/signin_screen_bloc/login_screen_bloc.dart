@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
+import 'package:cinepass_owner/models/owner_model.dart';
 import 'package:cinepass_owner/services/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -40,6 +41,12 @@ class LoginScreenBloc extends Bloc<LoginScreenEvent, LoginScreenState> {
         SharedPreferences sharedPreferences =
             await SharedPreferences.getInstance();
         await sharedPreferences.setBool('isAlreadyLoggedIn', true);
+        final reseponse = await APIServices()
+            .getAPIWithToken('getCurrentOwner', status['token']);
+        final statusOwner = jsonDecode(reseponse.body) as Map<String, dynamic>;
+        OwnerModel ownerModel = OwnerModel.fromJson(statusOwner['data']);
+        await storage.write(key: 'userId', value: ownerModel.id);
+        await storage.write(key: 'theaterName', value: ownerModel.name);
         emit(LoginSuccessState());
       } else {
         if (status.containsKey("noUser")) {

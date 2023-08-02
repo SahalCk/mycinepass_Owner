@@ -147,3 +147,68 @@ class CinePassPasswordTextFormField extends StatelessWidget {
     );
   }
 }
+
+class CinePassTextFormFieldWithDropDown extends StatelessWidget {
+  final String hint;
+
+  final String fieldName;
+  final Icon? prefixIcon;
+  final bool? isLast;
+  final Function()? function;
+  final TextEditingController controller;
+
+  const CinePassTextFormFieldWithDropDown(
+      {super.key,
+      required this.hint,
+      required this.fieldName,
+      required this.prefixIcon,
+      required this.isLast,
+      this.function,
+      required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: Adaptive.h(2)),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: Adaptive.w(2), right: Adaptive.w(1)),
+            child: prefixIcon,
+          ),
+          prefixIconColor: primaryColor,
+          hintText: hint,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: BorderSide(color: textFormFieldColor)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: BorderSide(color: textFormFieldColor)),
+          filled: true,
+          suffixIcon: DropdownButtonFormField(
+            borderRadius: BorderRadius.circular(10),
+            padding:
+                EdgeInsets.only(left: Adaptive.w(13), right: Adaptive.w(3)),
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: hint,
+                hintStyle: TextStyle(color: hintColor)),
+            style: const TextStyle(color: Colors.white, fontSize: 16),
+            onChanged: (newValue) {
+              controller.text = newValue.toString();
+            },
+            items: <String>['Dog', 'Cat', 'Tiger', 'Lion']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+          fillColor: textFormFieldColor,
+          hintStyle: TextStyle(color: hintColor)),
+      style: const TextStyle(color: Colors.white),
+      textInputAction: isLast == true ? null : TextInputAction.next,
+    );
+  }
+}

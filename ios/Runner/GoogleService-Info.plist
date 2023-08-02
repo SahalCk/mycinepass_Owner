@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>41341744618-l4p4tlk1dlftqkla1ocq9l95377p9lpj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.41341744618-l4p4tlk1dlftqkla1ocq9l95377p9lpj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDe9bAJTfsRn_Bu-UQQXADCcyZikQI_R84</string>
+	<key>GCM_SENDER_ID</key>
+	<string>41341744618</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cinepassOwner</string>
+	<key>PROJECT_ID</key>
+	<string>my-cinepass</string>
+	<key>STORAGE_BUCKET</key>
+	<string>my-cinepass.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:41341744618:ios:8b126f2c3872941a78ee93</string>
+</dict>
+</plist>

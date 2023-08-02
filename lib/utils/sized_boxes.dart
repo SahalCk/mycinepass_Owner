@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 SizedBox sizedBoxHeight10 = SizedBox(height: Adaptive.h(1));
+SizedBox sizedBoxHeight15 = SizedBox(height: Adaptive.h(1.5));
 SizedBox sizedBoxHeight20 = SizedBox(height: Adaptive.h(2));
 SizedBox sizedBoxHeight30 = SizedBox(height: Adaptive.h(3));
 SizedBox sizedBoxHeight40 = SizedBox(height: Adaptive.h(4));

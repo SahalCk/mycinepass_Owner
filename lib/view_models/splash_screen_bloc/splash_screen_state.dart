@@ -5,6 +5,8 @@ abstract class SplashScreenState {}
 
 class SplashScreenInitial extends SplashScreenState {}
 
+class OneSignalSetupCompleatedState extends SplashScreenState {}
+
 class NavigateToLoginScreen extends SplashScreenState {}
 
 class NavigateToHomeScreen extends SplashScreenState {}
