@@ -7,6 +7,7 @@ import 'package:cinepass_owner/view_models/manage_screens/manage_screens_bloc.da
 import 'package:cinepass_owner/view_models/sign_up_screen_bloc/signup_screen_bloc.dart';
 import 'package:cinepass_owner/view_models/signin_screen_bloc/login_screen_bloc.dart';
 import 'package:cinepass_owner/view_models/splash_screen_bloc/splash_screen_bloc.dart';
+import 'package:cinepass_owner/view_models/view_bookings_bloc/view_bookings_bloc.dart';
 import 'package:cinepass_owner/views/screens/screen_splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => SignupScreenBloc()),
         BlocProvider(create: (context) => HomeScreenBloc()),
         BlocProvider(create: (context) => ManageScreensBloc()),
-        BlocProvider(create: (context) => ManageMoviesBloc())
+        BlocProvider(create: (context) => ManageMoviesBloc()),
+        BlocProvider(create: (context) => ViewBookingsBloc())
       ],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {

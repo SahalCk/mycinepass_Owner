@@ -45,7 +45,10 @@ class CinePassScreenWidget extends StatelessWidget {
           SizedBox(
             height: Adaptive.h(9),
             width: Adaptive.w(18),
-            child: Image.asset('assets/manage_screens.png', fit: BoxFit.fill),
+            child: Opacity(
+                opacity: 0.75,
+                child:
+                    Image.asset('assets/manage_screens.png', fit: BoxFit.fill)),
           ),
           SizedBox(width: Adaptive.w(5)),
           Column(

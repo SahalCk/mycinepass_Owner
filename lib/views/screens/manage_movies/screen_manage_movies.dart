@@ -4,6 +4,7 @@ import 'package:cinepass_owner/view_models/manage_movies_bloc/manage_movies_bloc
 import 'package:cinepass_owner/views/screens/manage_movies/screen_add_edit_movie.dart';
 import 'package:cinepass_owner/views/widgets/cine_pass_appbar.dart';
 import 'package:cinepass_owner/views/widgets/cine_pass_movie_card.dart';
+import 'package:cinepass_owner/views/widgets/cine_pass_snack_bars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +30,24 @@ class ManageMoviesScreen extends StatelessWidget {
                     children: [
                       sizedBoxHeight20,
                       Expanded(
-                        child: BlocBuilder<ManageMoviesBloc, ManageMoviesState>(
+                        child:
+                            BlocConsumer<ManageMoviesBloc, ManageMoviesState>(
+                          listenWhen: (previous, current) =>
+                              current is ManageMoviesActionState,
+                          buildWhen: (previous, current) =>
+                              current is! ManageMoviesActionState,
+                          listener: (context, state) {
+                            if (state is ShowDeletedState) {
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pop();
+                              errorSnackBar(
+                                  context, 'Show Deleted Successfully!');
+                            } else if (state is ShowDeletionFailedState) {
+                              Navigator.of(context).pop();
+                              Navigator.of(context).pop();
+                              errorSnackBar(context, state.error);
+                            }
+                          },
                           builder: (context, state) {
                             if (state is AllMoviesGotState) {
                               return state.movieModelList.isNotEmpty
@@ -39,6 +57,8 @@ class ManageMoviesScreen extends StatelessWidget {
                                       itemBuilder: (context, index) {
                                         return CinePassMovieCard(
                                             index: index,
+                                            showID:
+                                                state.movieModelList[index].id,
                                             screenID: state
                                                 .movieModelList[index].screenId,
                                             movieName: state

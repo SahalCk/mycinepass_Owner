@@ -2,8 +2,6 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:cinepass_owner/services/api_services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
